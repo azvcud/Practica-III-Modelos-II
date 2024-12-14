@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster&family=Dancing+Script&display=swap');
+
+/* Reset básico */
+body, h1, ul, li, p, button {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Caveat', cursive;
+}
+
+/* Estilos del cuerpo */
+body {
+    background-color: #deeed9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Estilos del título */
+h1 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos de la lista desordenada como grilla */
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    gap: 10px; /* Espacio entre los cuadrados */
+    margin: 0 auto; /* Centrar la grilla */
+    padding: 0;
+    max-width: 600px; /* Ancho máximo de la grilla */
+}
+
+/* Estilos de los elementos de la lista */
+.numbers li {
+    background-color: #fff; /* Color de fondo de cada cuadrado */
+    border: 2px solid #4CAF50; /* Borde verde */
+    border-radius: 8px; /* Bordes redondeados */
+    display: flex; /* Usar flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 60px; /* Altura de cada cuadrado */
+    font-size: 1.5em; /* Tamaño de fuente */
+    transition: transform 0.2s; /* Transición para el efecto de hover */
+}
+
+.numbers li:hover {
+    transform: scale(1.1); /* Aumentar tamaño al pasar el ratón */
+}
+
+/* Estilos del párrafo */
+p {
+    margin: 20px 0;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+/* Estilos de los botones */
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 15px; /* Relleno interno */
+    font-size: 1em; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    margin: 0 10px; /* Espaciado entre botones */
+}
+
+button:hover {
+    background-color: #45a049; /* Color de fondo al pasar el ratón */
+}

@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Lato:wght@400;600&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #e5e2fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #222121;
+    font-family: 'Roboto Slab', serif;
+}
+
+h2 {
+    color: #444444;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+.list-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    overflow: auto;
+}
+
+.list-products div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 75%;
+    float: left;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.list-products div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.list-products h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.list-products div:hover h2 {
+    color: #fff;
+}
+
+.list-products p {
+    font-weight: bold;
+    color: #888;
+}
+
+.list-products div:hover p {
+    color: #e0e0e0;
+}
+
+.advanced-search, .modification {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.advanced-search form, .modification form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .list-products {
+        grid-template-columns: 1fr;
+    }
+}

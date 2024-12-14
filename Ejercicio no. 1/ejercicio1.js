@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*----------------------------------------------------------------------*/
     const transformarArray = (ul_Array) => ul_Array
-        .map(item => item.textContent)
+        .map(item => item.textContent.toLowerCase())
         .sort();
     
-    const elementoEliminar = (ul_Array, texto) => ul_Array
+    const buscarElemento = (ul_Array, texto) => ul_Array
         .find(item => item.textContent === texto);
 
     const soloLetras = (texto) => 
@@ -26,14 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const insertarEnLista = (ul) => {
-        const li_nuevoNombre = document.createElement('li');
-        const nombreInsertar = prompt("Escriba el nuevo nombre");
+        const ul_ArrayNombres   = Array.from(ul.children);
+        const li_nuevoNombre    = document.createElement('li');
+        const nombreInsertar    = prompt("Escriba el nuevo nombre");
         
-        if (nombreInsertar && soloLetras(nombreInsertar)) {
-            li_nuevoNombre.textContent = nombreInsertar;
-            ul_nombres.appendChild(li_nuevoNombre);
+        const verificarNombre = 
+            nombreInsertar && 
+            soloLetras(nombreInsertar) &&
+            !buscarElemento(ul_ArrayNombres, nombreInsertar.toLowerCase());
+
+        if (verificarNombre) {
+            li_nuevoNombre.textContent = nombreInsertar.toLowerCase();
+            ul.appendChild(li_nuevoNombre);
         }
-        else { alert("El nombre no es válido o contiene espacios."); }
+        else { alert("El nombre no es válido, contiene espacios o ya existe."); }
     };
 
     const eliminarDeLista = (ul) => {
@@ -43,10 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if(!nombreEliminar || !soloLetras(nombreEliminar)) 
         { alert("El nombre no es válido o contiene espacios."); return; }
 
-        const li_nombreEliminar = elementoEliminar(ul_ArrayNombres, nombreEliminar);
+        const li_nombreEliminar = buscarElemento(ul_ArrayNombres, nombreEliminar.toLowerCase());
 
         if(li_nombreEliminar)   { ul.removeChild(li_nombreEliminar); }
-        else                    { alert(`No se encontró "${nombreEliminar}" en la lista.`); }
+        else                    { alert(`No se encontró "${li_nombreEliminar.textContent}" en la lista.`); }
     };
 
     /*-----------------------------------------------------------------------*/
