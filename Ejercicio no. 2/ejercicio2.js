@@ -19,10 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return precio
         });
     
-    const desplegar_ProductosFiltrados = (div, ArrayIndex) => ArrayIndex
-        .forEach(index => {
-            if (div[index]) { div[index].style.display = 'block'; }
-            else            { div[index].style.display = 'none'; }
+    const desplegar_ProductosFiltrados = (div, ArrayIndex) => div
+        .forEach((div, index) => {
+            ArrayIndex.includes(index) 
+            ? div.style.display = 'block'
+            : div.style.display = 'none'; 
         });
 
     const filtrarIndices = (Array1, Array2) => Array2
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .filter(index => index !== -1);
 
     const filtrarPrecios = (ArrayPrecios, valorMaximo) => ArrayPrecios
-        .filter((precio) => precio < valorMaximo)
+        .filter((precio) => precio <= valorMaximo)
     
     const soloEnteros = (texto) => 
         /^[0-9]+$/.test(texto);
