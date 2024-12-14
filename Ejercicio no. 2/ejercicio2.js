@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const bt_buscar             = document.getElementById('buscar');
     const bt_insertar           = document.getElementById('insertar');
     const bt_eliminar           = document.getElementById('eliminar');
+    const bt_reiniciar          = document.getElementById('reiniciar');
     const input_precioMaximo    = document.getElementById('max-price');
+    const input_nombreProducto  = document.getElementById('name');
+    const input_precioProducto  = document.getElementById('price');
 
     /*-------------------------------------------------------------------------*/
     const extraerParrafos = (div_Array) => div_Array
@@ -19,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return precio
         });
     
-    const desplegar_ProductosFiltrados = (div, ArrayIndex) => div
+    const filtrar_productosMostrar = (div, ArrayIndex) => div
         .forEach((div, index) => {
             ArrayIndex.includes(index) 
-            ? div.style.display = 'block'
-            : div.style.display = 'none'; 
+            ? div.style.display = 'none'
+            : div.style.display = 'block'; 
         });
 
     const filtrarIndices = (Array1, Array2) => Array2
@@ -31,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .filter(index => index !== -1);
 
     const filtrarPrecios = (ArrayPrecios, valorMaximo) => ArrayPrecios
-        .filter((precio) => precio <= valorMaximo)
+        .filter((precio) => precio > valorMaximo)
     
     const soloEnteros = (texto) => 
         /^[0-9]+$/.test(texto);
@@ -46,22 +49,39 @@ document.addEventListener("DOMContentLoaded", function () {
         if(!soloEnteros(precioMaximo))
         { alert("El dato ingresado es inválido o contiene espacios, comas o puntos."); return; }
 
-        const preciosFiltrados              = filtrarPrecios(ArrayPrecios, precioMaximo);
-        
         //Los índices de los precios coinciden con los de los contenedores de los productos
+        const preciosFiltrados              = filtrarPrecios(ArrayPrecios, precioMaximo);
         const indices_productosFiltrados    = filtrarIndices(ArrayPrecios, preciosFiltrados);
         
-        desplegar_ProductosFiltrados(div_ArrayProductos, indices_productosFiltrados);
+        filtrar_productosMostrar(div_ArrayProductos, indices_productosFiltrados);
+    };
 
-        console.log(div_ArrayProductos);
-        console.log(p_ArrayPrecios);
-        console.log(ArrayPrecios);
-        console.log(preciosFiltrados);
-        console.log(indices_productosFiltrados);
-    }
+    const reiniciarBusqueda = (div, input) => {
+        const div_ArrayProductos = Array.from(div.children);
+        
+        input.value = '';
+        filtrar_productosMostrar(div_ArrayProductos, []);
+    };
 
+    const insertarProducto = (div, input1, input2) => {
+        //Mañana un sábado
+    };
+
+    const eliminarProducto = (div, input1, input2) => {
+        //Mañana un sábado -> TODO: README el sábado
+    };
+    
     /*-------------------------------------------------------------------------*/
-    bt_buscar.addEventListener('click', () => buscar_precioMaximo(div_productos, input_precioMaximo));
-    bt_insertar.addEventListener('click', () => insertarProducto(div_productos));
-    bt_eliminar.addEventListener('click', () => eliminarProducto(div_productos));
+    bt_buscar.addEventListener('click',     () => buscar_precioMaximo(div_productos, input_precioMaximo));
+    bt_reiniciar.addEventListener('click',  () => reiniciarBusqueda(div_productos, input_precioMaximo));
+    bt_insertar.addEventListener('click',   () => insertarProducto(
+        div_productos, 
+        input_nombreProducto,
+        input_precioProducto
+    ));
+    bt_eliminar.addEventListener('click',   () => eliminarProducto(
+        div_productos,
+        input_nombreProducto,
+        input_precioProducto
+    ));
 });
