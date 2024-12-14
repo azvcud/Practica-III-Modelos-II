@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster&family=Dancing+Script&display=swap');
 
-/* Reset básico */
 body, h1, ul, li, p, button {
     margin: 0;
     padding: 0;
@@ -8,7 +7,6 @@ body, h1, ul, li, p, button {
     font-family: 'Caveat', cursive;
 }
 
-/* Estilos del cuerpo */
 body {
     background-color: #deeed9;
     color: #333;
@@ -62,7 +60,7 @@ p {
     margin-top: 20px;
 }
 
-button {
+.buttons button {
     background-color: #4CAF50; /* Color de fondo */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
@@ -73,6 +71,31 @@ button {
     margin: 0 10px; /* Espaciado entre botones */
 }
 
-button:hover {
+.buttons button:hover {
     background-color: #45a049; /* Color de fondo al pasar el ratón */
+}
+
+.index-page {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 80px; 
+    gap: 10px;
+}
+
+.index-page #volver {
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0); 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+}
+
+.index-page #volver:hover {
+    background-color: #000000; 
+    color: rgb(255, 255, 255); 
 }

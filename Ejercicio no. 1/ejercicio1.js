@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const bt_ordenar    = document.getElementById('ordenar');
     const bt_insertar   = document.getElementById('insertar');
     const bt_eliminar   = document.getElementById('eliminar');
+    const bt_volver     = document.getElementById('volver');
     const ul_nombres    = document.getElementById('lista-nombres');
 
     /*----------------------------------------------------------------------*/
@@ -55,8 +56,13 @@ document.addEventListener("DOMContentLoaded", function () {
         else                    { alert(`No se encontró "${li_nombreEliminar.textContent}" en la lista.`); }
     };
 
+    const paginaPrincipal = () => {
+        window.location.href = './../index.html';
+    }
+
     /*-----------------------------------------------------------------------*/
     bt_ordenar.addEventListener('click',  () => ordenarLista(ul_nombres));
     bt_insertar.addEventListener('click', () => insertarEnLista(ul_nombres));
     bt_eliminar.addEventListener('click', () => eliminarDeLista(ul_nombres));
+    bt_volver.addEventListener('click',   () => paginaPrincipal());
 });

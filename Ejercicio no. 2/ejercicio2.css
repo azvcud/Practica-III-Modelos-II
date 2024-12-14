@@ -112,6 +112,31 @@ button:hover {
     background-color: #0056b3;
 }
 
+.index-page {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 80px; 
+    gap: 10px;
+}
+
+.index-page #volver {
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0); 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+}
+
+.index-page #volver:hover {
+    background-color: #000000; 
+    color: rgb(255, 255, 255); 
+}
+
 @media (max-width: 768px) {
     .list-products {
         grid-template-columns: 1fr;

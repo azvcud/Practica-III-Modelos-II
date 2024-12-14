@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const bt_calcular   = document.getElementById('calcular-suma-cuadrados');
     const bt_generar    = document.getElementById('generar');
     const bt_eliminar   = document.getElementById('eliminar');
+    const bt_volver     = document.getElementById('volver');
     const ul_numeros    = document.getElementById('lista-numeros');
     const p_resultado   = document.getElementById('resultado-suma');
 
@@ -63,8 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
         else                    { alert(`No se encontró "${li_numeroEliminar.textContent}" en la lista.`); }
     };
 
+    const paginaPrincipal = () => {
+        window.location.href = './../index.html';
+    }
+
     /*------------------------------------------------------------------------*/
     bt_calcular.addEventListener('click', () => sumarCuadrados(ul_numeros, p_resultado));
     bt_generar.addEventListener('click',  () => generarNumero(ul_numeros));
     bt_eliminar.addEventListener('click', () => eliminarNumero(ul_numeros));
+    bt_volver.addEventListener('click',   () => paginaPrincipal());
 });
